@@ -15,7 +15,9 @@
     <insert id="addUser" parameterType="com.mybatis.pojo.User">
         insert into my_frame_demo.user (id, name ,pwd) values (#{id}, #{name}, #{pwd})
     </insert>
-
+    <insert id="addUserByMap" parameterType="map">
+        insert into my_frame_demo.user (id, name ,pwd) values (#{userId}, #{userName}, #{passWord})
+    </insert>
     <update id="updateUser" parameterType="com.mybatis.pojo.User">
         update my_frame_demo.user user
         set user.name = #{name}
@@ -26,4 +28,13 @@
         delete from my_frame_demo.user
         where id = #{id};
     </delete>
+
+
+<!--    sql注入 %%写死在sql语句中-->
+<!--    <select id="getUserList2" resultType="com.mybatis.pojo.User">-->
+<!--        select * from my_frame_demo.user where name like "%"#{name}"%"-->
+<!--    </select>-->
+
+
+
 </mapper>
