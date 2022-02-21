@@ -23,4 +23,43 @@ public class UserDaoTest {
 
         session.close();
     }
+
+    @Test
+    public void getUserById(){
+        SqlSession session = MyBatisUtils.getSession();
+        User result = session.getMapper(UserDao.class).getUserById(1);
+        System.out.println(result);
+        session.close();
+    }
+
+    @Test
+    public void addUser(){
+        SqlSession session = MyBatisUtils.getSession();
+        User user = new User("5", "Johnson", "root");
+        int affectRow = session.getMapper(UserDao.class).addUser(user);
+        System.out.println(affectRow);
+        session.commit();
+        session.close();
+    }
+
+    @Test
+    public void updateUser(){
+        SqlSession session = MyBatisUtils.getSession();
+        User user = new User("5", "JohnsonTestUpdate", "root");
+        int affectRow = session.getMapper(UserDao.class).updateUser(user);
+        System.out.println(affectRow);
+        session.commit();
+        session.close();
+    }
+
+    @Test
+    public void deleteUser(){
+        SqlSession session = MyBatisUtils.getSession();
+        int affectRow = session.getMapper(UserDao.class).deleteUser("3");
+
+        System.out.println(affectRow);
+        session.commit();
+        session.close();
+
+    }
 }
