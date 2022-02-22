@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<!--    引入外部文件-->
+    <properties resource="db.properties">
+<!--        配置了错误密码,但是配置文件里的密码正确,覆盖了这个配置-->
+        <property name="password" value="123456"/>
+    </properties>   
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+    <typeAliases>
+        <!--    实体类别名-->
+<!--        <typeAlias type="com.mybatis.pojo.User" alias="User"></typeAlias>-->
+
+<!--        包别名, 扫描这个包下的类, 并且以这个包下的类名首字母小写为该类的别名-->
+        <package name="com.mybatis.pojo"/>
+    </typeAliases>
+    <environments default="test">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/my_frame_demo?useUnicode=true&amp;characterEncoding=UTF-8&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=Asia/Shanghai&amp;allowMultiQueries=true"/>
+                <property name="username" value="root"/>
+                <property name="password" value="root"/>
+            </dataSource>
+        </environment>
+
+        <environment id="test">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+<!--        <mapper resource="com/mybatis/dao/UserMapper.xml"></mapper>-->
+<!--        需要和xml同名-->
+<!--        <mapper class="com/mybatis/dao/UserMapper.java"></mapper>-->
+        
+<!--        需要同名同包-->
+        <package name="com/mybatis/dao"/>
+    </mappers>
+</configuration>

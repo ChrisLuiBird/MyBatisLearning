@@ -9,6 +9,12 @@
         <outputRelativeToContentRoot value="true" />
         <module name="mybatis" />
       </profile>
+      <profile name="Annotation profile for MyDemoForFrame" enabled="true">
+        <sourceOutputDir name="../mybatis/target/generated-sources/annotations" />
+        <sourceTestOutputDir name="../mybatis/target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="mybatis_config_demo" />
+      </profile>
     </annotationProcessing>
   </component>
 </project>

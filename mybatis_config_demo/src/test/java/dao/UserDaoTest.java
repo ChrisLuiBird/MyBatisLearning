@@ -1,13 +1,12 @@
-package com.mybatis.dao;
+package dao;
 
+import com.mybatis.dao.UserMapper;
 import com.mybatis.pojo.User;
 import com.mybatis.utils.MybatisUtils;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author LUIKITFUNG
@@ -17,7 +16,7 @@ public class UserDaoTest {
     @Test
     public void test(){
         SqlSession session = MybatisUtils.getSession();
-        List<User> result = session.getMapper(UserDao.class).getUserList();
+        List<User> result = session.getMapper(UserMapper.class).getUserList();
 
         result.forEach(user ->{
             System.out.println(user);
@@ -29,7 +28,7 @@ public class UserDaoTest {
     @Test
     public void getUserById(){
         SqlSession session = MybatisUtils.getSession();
-        User result = session.getMapper(UserDao.class).getUserById(1);
+        User result = session.getMapper(UserMapper.class).getUserById(1);
         System.out.println(result);
         session.close();
     }
@@ -38,7 +37,7 @@ public class UserDaoTest {
     public void addUser(){
         SqlSession session = MybatisUtils.getSession();
         User user = new User("5", "Johnson", "root");
-        int affectRow = session.getMapper(UserDao.class).addUser(user);
+        int affectRow = session.getMapper(UserMapper.class).addUser(user);
         System.out.println(affectRow);
         session.commit();
         session.close();
@@ -48,7 +47,7 @@ public class UserDaoTest {
     public void updateUser(){
         SqlSession session = MybatisUtils.getSession();
         User user = new User("5", "JohnsonTestUpdate", "root");
-        int affectRow = session.getMapper(UserDao.class).updateUser(user);
+        int affectRow = session.getMapper(UserMapper.class).updateUser(user);
         System.out.println(affectRow);
         session.commit();
         session.close();
@@ -57,26 +56,11 @@ public class UserDaoTest {
     @Test
     public void deleteUser(){
         SqlSession session = MybatisUtils.getSession();
-        int affectRow = session.getMapper(UserDao.class).deleteUser("3");
+        int affectRow = session.getMapper(UserMapper.class).deleteUser("3");
 
         System.out.println(affectRow);
         session.commit();
         session.close();
 
-    }
-
-
-    @Test
-    public void addUserByMap(){
-        SqlSession session = MybatisUtils.getSession();
-        Map<String, Object> map = new HashMap<>();
-        map.put("userId", 6);
-        map.put("userName","testMap");
-        map.put("passWord","pwd");
-
-        int affectMap = session.getMapper(UserDao.class).addUserByMap(map);
-        System.out.println(affectMap);
-        session.commit();
-        session.close();
     }
 }
