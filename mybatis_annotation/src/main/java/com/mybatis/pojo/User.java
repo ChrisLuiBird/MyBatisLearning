@@ -1,5 +1,7 @@
 package com.mybatis.pojo;
 
+import org.apache.ibatis.annotations.Property;
+
 /**
  * @author LUIKITFUNG
  * @create 2022 - 02 - 18 - 16:45
@@ -7,7 +9,6 @@ package com.mybatis.pojo;
 public class User {
     private String id;
     private String name;
-//    与数据库不一致,resultMap demoi
     private String password;
 
     public User() {
@@ -48,7 +49,7 @@ public class User {
         return "User{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", password='" + password + '\'' +
+                ", pwd='" + password + '\'' +
                 '}';
     }
 }

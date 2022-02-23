@@ -4,21 +4,21 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mybatis.dao.UserDao">
 <!--    中文注释-->
-    <select id="getUserList" resultType="com.mybatis.pojo.User">
+    <select id="getUserList" resultType="User">
         select * from my_frame_demo.user
     </select>
 
-    <select id="getUserById" resultType="com.mybatis.pojo.User" parameterType="int">
+    <select id="getUserById" resultType="User" parameterType="int">
         select * from my_frame_demo.user where id = #{id}
     </select>
 
-    <insert id="addUser" parameterType="com.mybatis.pojo.User">
+    <insert id="addUser" parameterType="User">
         insert into my_frame_demo.user (id, name ,pwd) values (#{id}, #{name}, #{pwd})
     </insert>
     <insert id="addUserByMap" parameterType="map">
         insert into my_frame_demo.user (id, name ,pwd) values (#{userId}, #{userName}, #{passWord})
     </insert>
-    <update id="updateUser" parameterType="com.mybatis.pojo.User">
+    <update id="updateUser" parameterType="User">
         update my_frame_demo.user user
         set user.name = #{name}
         where user.id = #{id};
@@ -31,7 +31,7 @@
 
 
 <!--    sql注入 %%写死在sql语句中-->
-<!--    <select id="getUserList2" resultType="com.mybatis.pojo.User">-->
+<!--    <select id="getUserList2" resultType="com.mybatisConfig.pojo.User2">-->
 <!--        select * from my_frame_demo.user where name like "%"#{name}"%"-->
 <!--    </select>-->
 

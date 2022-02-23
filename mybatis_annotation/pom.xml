@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>mybatis_config_demo</artifactId>
+    <artifactId>mybatis_annotation</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -27,10 +27,6 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
         </dependency>
     </dependencies>
     <build>

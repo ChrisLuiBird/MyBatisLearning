@@ -11,6 +11,8 @@
     <modules>
         <module>mybatis</module>
         <module>mybatis_config_demo</module>
+        <module>mybatis_annotation</module>
+        <module>mybatis_annotation</module>
     </modules>
 
     <properties>
@@ -34,6 +36,7 @@
                 <artifactId>junit</artifactId>
                 <version>4.12</version>
             </dependency>
+
         </dependencies>
     </dependencyManagement>
 </project>

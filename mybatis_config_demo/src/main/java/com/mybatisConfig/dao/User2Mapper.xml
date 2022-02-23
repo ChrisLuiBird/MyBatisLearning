@@ -2,17 +2,17 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-    <mapper namespace="com.mybatis.dao.UserMapper">
+    <mapper namespace="com.mybatisConfig.dao.User2Mapper">
 
 
-    <select id="getUserById" resultType="User" parameterType="int">
+    <select id="getUserById" resultType="User2" parameterType="int">
         select * from my_frame_demo.user where id = #{id}
     </select>
 
-    <insert id="addUser" parameterType="User">
+    <insert id="addUser" parameterType="User2">
         insert into my_frame_demo.user (id, name ,pwd) values (#{id}, #{name}, #{pwd})
     </insert>
-    <update id="updateUser" parameterType="User">
+    <update id="updateUser" parameterType="User2">
         update my_frame_demo.user user
         set user.name = #{name}
         where user.id = #{id};
@@ -26,10 +26,14 @@
     <select id="getUserList" resultMap="UserMap">
         select * from my_frame_demo.user
     </select>
-    <resultMap id="UserMap" type="User">
+    <resultMap id="UserMap" type="User2">
 <!--        一样的不映射-->
 <!--        <result column="id" property="id" />-->
 <!--        <result column="name" property="name" />-->
         <result column="pwd" property="password" />
     </resultMap>
+
+    <select id="getUserListByPage" parameterType="map" resultMap="UserMap">
+        select * from User
+    </select>
 </mapper>

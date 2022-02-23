@@ -5,16 +5,16 @@
     <properties resource="db.properties">
 <!--        配置了错误密码,但是配置文件里的密码正确,覆盖了这个配置-->
         <property name="password" value="123456"/>
-    </properties>   
+    </properties>
     <settings>
         <setting name="logImpl" value="STDOUT_LOGGING"/>
     </settings>
     <typeAliases>
         <!--    实体类别名-->
-<!--        <typeAlias type="com.mybatis.pojo.User" alias="User"></typeAlias>-->
+<!--        <typeAlias type="com.mybatisConfig.pojo.User2" alias="User"></typeAlias>-->
 
 <!--        包别名, 扫描这个包下的类, 并且以这个包下的类名首字母小写为该类的别名-->
-        <package name="com.mybatis.pojo"/>
+        <package name="com.mybatisConfig.pojo"/>
     </typeAliases>
     <environments default="test">
         <environment id="development">
@@ -37,13 +37,12 @@
             </dataSource>
         </environment>
     </environments>
-
     <mappers>
-<!--        <mapper resource="com/mybatis/dao/UserMapper.xml"></mapper>-->
+<!--        <mapper resource="com/mybatis/dao/User2Mapper.xml"></mapper>-->
 <!--        需要和xml同名-->
 <!--        <mapper class="com/mybatis/dao/UserMapper.java"></mapper>-->
         
 <!--        需要同名同包-->
-        <package name="com/mybatis/dao"/>
+        <package name="com/mybatisConfig/dao"/>
     </mappers>
 </configuration>

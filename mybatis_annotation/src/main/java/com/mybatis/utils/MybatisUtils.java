@@ -12,7 +12,7 @@ import java.io.InputStream;
  * @author LUIKITFUNG
  * @create 2022 - 02 - 21 - 14:48
  **/
-public class MyBatisUtils {
+public class MybatisUtils {
     private static SqlSessionFactory sqlSessionFactory;
     static {
         String resource = "mybatis-config.xml";
@@ -25,6 +25,6 @@ public class MyBatisUtils {
 
     }
     public static SqlSession getSession(){
-        return sqlSessionFactory.openSession();
+        return sqlSessionFactory.openSession(true);
     }
 }

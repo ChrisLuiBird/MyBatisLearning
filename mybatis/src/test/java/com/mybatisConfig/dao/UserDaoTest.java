@@ -1,5 +1,6 @@
-package com.mybatis.dao;
+package com.mybatisConfig.dao;
 
+import com.mybatis.dao.UserDao;
 import com.mybatis.pojo.User;
 import com.mybatis.utils.MybatisUtils;
 import org.apache.ibatis.session.SqlSession;
