@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="mybatis_annotation" />
+        <module name="mybatis_many_to_one" />
         <module name="mybatis" />
         <module name="mybatis_config_demo" />
       </profile>
