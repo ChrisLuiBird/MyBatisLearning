@@ -22,6 +22,7 @@
         <result property="id" column="sid"></result>
         <result property="name" column="sname"></result>
         <association property="teacher" javaType="Teacher">
+            <result property="id" column="tid" />
             <result property="name" column="tname" />
         </association>
     </resultMap>
