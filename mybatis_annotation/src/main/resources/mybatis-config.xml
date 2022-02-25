@@ -15,6 +15,6 @@
     <mappers>
 <!--        主要resource是 / 路径   class是 . 路径-->
 <!--        <mapper resource="com/mybatis/dao/UserMapper.xml" />-->
-        <mapper class="com.mybatis.dao.UserDao"></mapper>
+        <mapper class="com.mybatis.dao.dao.UserDao"></mapper>
     </mappers>
 </configuration>
