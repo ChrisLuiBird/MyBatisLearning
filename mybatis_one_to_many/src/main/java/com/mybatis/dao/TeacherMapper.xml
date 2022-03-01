@@ -11,7 +11,7 @@
         <result property="id" column="tid" />
         <result property="name" column="tname" />
 
-<!--        结果集 collection 要用集合内的泛型 要用 ofType而不是javaType-->
+<!--    结果集 collection 要用集合内的泛型 要用 ofType而不是javaType-->
         <collection property="students" ofType="Student">
             <result column="sname" property="name" />
             <result column="sid" property="id" />

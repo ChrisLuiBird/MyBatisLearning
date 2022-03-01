@@ -15,6 +15,7 @@
         <module>mybatis_annotation</module>
         <module>mybatis_many_to_one</module>
         <module>mybatis_one_to_many</module>
+        <module>mybatis_dynamic_sql</module>
     </modules>
 
     <properties>
