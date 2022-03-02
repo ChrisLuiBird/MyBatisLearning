@@ -61,4 +61,51 @@ public class MyTest {
         });
         session.close();
     }
+
+    @Test
+    public void geBlogsByChoose(){
+        SqlSession session = MyBatisUtils.getSession();
+        BlogMapper mapper = session.getMapper(BlogMapper.class);
+
+        Map<String, Object> queryMap = new HashMap<>();
+//        queryMap.put("title","T1");
+//        queryMap.put("author","c");
+        queryMap.put("views","3");
+        List<Blog> result = mapper.getBlogsByChoose(queryMap);
+        result.forEach(blog -> {
+            System.out.println(blog);
+        });
+        session.close();
+    }
+
+    @Test
+    public void updateBlog(){
+        SqlSession session = MyBatisUtils.getSession();
+        BlogMapper mapper = session.getMapper(BlogMapper.class);
+        Blog blog = new Blog();
+        blog.setId("920b2e580825411b8ac96c2c249aa926");
+//        blog.setTitle("H3");
+        blog.setAuthor("cryin2");
+
+        int resultRow = mapper.updateBlog(blog);
+        System.out.println(resultRow);
+        session.close();
+    }
+
+    @Test
+    public void queryByForeach(){
+        SqlSession session = MyBatisUtils.getSession();
+        BlogMapper mapper = session.getMapper(BlogMapper.class);
+        List<String> ids = new ArrayList<>();
+        ids.add("1a284b03112f422f9010fdfe8ccd320e");
+        ids.add("624c37d475ad49f382bb8210518e3e11");
+
+        List<Blog> blogs = mapper.queryByForeach(ids);
+
+        blogs.forEach(b ->{
+            System.out.println(b);
+        });
+
+        session.close();
+    }
 }
