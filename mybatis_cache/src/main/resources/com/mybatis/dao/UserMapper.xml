@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.dao.UserMapper">
+
+<!--    需要去setting开启全局缓存-->
+    <cache />
+
+    <select id="getUserById" parameterType="_int" resultMap="iniUser">
+        select *
+        from user where id = #{id};
+    </select>
+
+    <resultMap id="iniUser" type="User">
+        <result column="pwd" property="password" />
+    </resultMap>
+</mapper>
